@@ -6,8 +6,9 @@ pipeline{
     stages{
         stage("Building Docker Image"){
             steps{
-                script{
-                    docker.build 
+                echo "========executing Building Docker Image========"
+                scripts{
+                    docker.build
                 }
             }
         }
