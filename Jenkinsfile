@@ -25,7 +25,7 @@ pipeline{
                 script{
                     withDockerRegistry(credentialsId: 'DOCKER_HUB', url: 'https://hub.docker.com/repositories/kgowthamnk/docker-django-v0.0') {
                     sh 'docker push  test":$BRANCH_NAME-$BUILD_NUMBER"'
-
+                    }
                 }
             }
         }
