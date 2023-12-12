@@ -12,7 +12,7 @@ pipeline{
             steps{
                 echo "========executing Building Docker Image========"
                 scripts{
-                    docker.build("${BRANCH_NAME}-${BUILD_NUMBER}")
+                    sh 'docker build -t test:${BRANCH_NAME} .'
                 }
             }
         }
