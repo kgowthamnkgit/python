@@ -11,9 +11,7 @@ pipeline{
         stage("Building Docker Image"){
             steps{
                 echo "========executing Building Docker Image========"
-                scripts{
-                    sh 'docker build -t test:${BRANCH_NAME} .'
-                }
+                sh 'docker build -t test:${BRANCH_NAME}-${BUILD_NUMBER} .'
             }
         }
     }
