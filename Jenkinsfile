@@ -7,7 +7,7 @@ pipeline{
         BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
         dockerImage=''
         credentialsId= "DOCKER_HUB"
-        url= 'https://hub.docker.com/repositories/kgowthamnk/docker-django-v0.0'
+        url= 'https://hub.docker.com/repositories/kgowthamnk'
     }
     agent any
     stages{
@@ -23,7 +23,7 @@ pipeline{
         stage("Pushing Image to DockerHUB"){
             steps{
                 script{
-                    withDockerRegistry(credentialsId: 'DOCKER_HUB', url: 'https://hub.docker.com/repositories/kgowthamnk/docker-django-v0.0') {
+                    withDockerRegistry(credentialsId: 'DOCKER_HUB', url: 'https://hub.docker.com/repositories/kgowthamnk') {
                     sh 'docker push  test":$BRANCH_NAME-$BUILD_NUMBER"'
                     }
                 }
