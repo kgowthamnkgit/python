@@ -15,7 +15,6 @@ pipeline{
             steps{
                 script{
                     echo "========executing Building Docker Image========"
-                    //sh 'docker build -t test:${BRANCH_NAME}-${BUILD_NUMBER} .'
                     dockerImage = docker.build("$docker_repository:${BRANCH_NAME}-${BUILD_NUMBER}")
                 }
             }
@@ -23,6 +22,7 @@ pipeline{
         stage("Pushing Image to DockerHUB"){
             steps{
                 script{
+                    echo "========executing Docker Image PUSH========"
                     withDockerRegistry(credentialsId: 'DOCKER_HUB', url: '') {
                     dockerImage.push()
                     }
