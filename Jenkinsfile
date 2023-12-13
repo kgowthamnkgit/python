@@ -22,7 +22,7 @@ pipeline{
         stage("Pushing Image to DockerHUB"){
             steps{
                 script{
-                    echo "========executing Docker Image PUSH========"
+                    echo "========PUSHING IMAGE TO DOCKERHUB========"
                     withDockerRegistry(credentialsId: 'DOCKER_HUB', url: '') {
                     dockerImage.push()
                     }
