@@ -16,7 +16,7 @@ pipeline{
                 script{
                     echo "========executing Building Docker Image========"
                     //sh 'docker build -t test:${BRANCH_NAME}-${BUILD_NUMBER} .'
-                    dockerImage = docker.build("test:${BRANCH_NAME}-${BUILD_NUMBER}")
+                    dockerImage = docker.build("kgowthamnk/docker-django-v0.0:${BRANCH_NAME}-${BUILD_NUMBER}")
                 }
             }
         }
