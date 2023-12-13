@@ -7,7 +7,7 @@ pipeline{
         BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
         dockerImage=''
         credentialsId= "DOCKER_HUB"
-       // url= 'https://hub.docker.com/repositories/kgowthamnk'
+        docker_repository= 'kgowthamnk/docker-django-v0.0'
     }
     agent any
     stages{
@@ -16,7 +16,7 @@ pipeline{
                 script{
                     echo "========executing Building Docker Image========"
                     //sh 'docker build -t test:${BRANCH_NAME}-${BUILD_NUMBER} .'
-                    dockerImage = docker.build("kgowthamnk/docker-django-v0.0:${BRANCH_NAME}-${BUILD_NUMBER}")
+                    dockerImage = docker.build("$docker_repository:${BRANCH_NAME}-${BUILD_NUMBER}")
                 }
             }
         }
