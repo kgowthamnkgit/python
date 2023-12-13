@@ -24,7 +24,7 @@ pipeline{
             steps{
                 script{
                     withDockerRegistry(credentialsId: 'DOCKER_HUB', url: '') {
-                    sh 'docker push  test":$BRANCH_NAME-$BUILD_NUMBER"'
+                    dockerImage.push()
                     }
                 }
             }
