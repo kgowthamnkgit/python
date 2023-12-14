@@ -50,7 +50,7 @@ pipeline{
                     echo "Successfully deployed to k8s"
                 }
                 failure{
-                    echo "Successfully deployed to k8s"
+                    echo "Failed deployed to k8s"
                 }
             }
         }
