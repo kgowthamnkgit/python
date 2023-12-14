@@ -34,12 +34,12 @@ pipeline{
                 branch 'main'
             }
             steps{
-                sh "chmod +x tag.sh"
-                sh "./tag.sh $BRANCH_NAME-${BUILD_NUMBER}"
-            }
-            script{
-                echo "========DEPLOYING IMAGE TO K8S========"
-                sh 'export KUBECONFIG=/home/k8s/.kube/config && kubectl apply -f /var/lib/jenkins/workspace/testing/ks_deployment.yaml'
+                scripts{
+                    sh "chmod +x tag.sh"
+                    sh "./tag.sh $BRANCH_NAME-${BUILD_NUMBER}"
+                    echo "========DEPLOYING IMAGE TO K8S========"
+                    sh 'export KUBECONFIG=/home/k8s/.kube/config && kubectl apply -f /var/lib/jenkins/workspace/testing/ks_deployment.yaml'
+                }
             }
             post{
                 success{
