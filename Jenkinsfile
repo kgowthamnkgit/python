@@ -29,26 +29,26 @@ pipeline{
                 }
             }
         }
-        // stage("Deploy to K8s cluster"){
-        //     when{
-        //         branch 'main'
-        //     }
-        //     steps{
-        //         sh "chmod +x tag.sh"
-        //         sh "./tag.sh $BRANCH_NAME-${BUILD_NUMBER}"
-        //     }
-        //     script{
-        //      echo "========DEPLOYING IMAGE TO K8S========"
-        //         sh 'export KUBECONFIG=/home/ubuntu/.kube/config && kubectl apply -f /var/lib/jenkins/workspace/testing/ks_deployment.yaml'
-        //     }
-        //     post{
-        //         success{
-        //             echo "Successfully deployed to k8s"
-        //         }
-        //         failure{
-        //             echo "Successfully deployed to k8s"
-        //         }
-        //     }
-        // }
+        stage("Deploy to K8s cluster"){
+            when{
+                branch 'main'
+            }
+            steps{
+                sh "chmod +x tag.sh"
+                sh "./tag.sh $BRANCH_NAME-${BUILD_NUMBER}"
+            }
+            script{
+                echo "========DEPLOYING IMAGE TO K8S========"
+                sh 'export KUBECONFIG=/home/k8s/.kube/config && kubectl apply -f /var/lib/jenkins/workspace/testing/ks_deployment.yaml'
+            }
+            post{
+                success{
+                    echo "Successfully deployed to k8s"
+                }
+                failure{
+                    echo "Successfully deployed to k8s"
+                }
+            }
+        }
     }
 }
