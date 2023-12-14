@@ -38,7 +38,7 @@ pipeline{
         //         sh "./tag.sh $BRANCH_NAME-${BUILD_NUMBER}"
         //     }
         //     script{
-        //      echo "========PUSHING IMAGE TO DOCKERHUB========"
+        //      echo "========DEPLOYING IMAGE TO K8S========"
         //         sh 'export KUBECONFIG=/home/ubuntu/.kube/config && kubectl apply -f /var/lib/jenkins/workspace/testing/ks_deployment.yaml'
         //     }
         //     post{
