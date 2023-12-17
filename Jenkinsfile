@@ -38,9 +38,8 @@ pipeline{
                     sh "chmod +x tag.sh"
                     sh "./tag.sh $BRANCH_NAME-${BUILD_NUMBER}"
                     echo "========DEPLOYING IMAGE TO K8S========"
-                    sh 'export KUBECONFIG=/home/test/.kube/config'
-                    sh 'kubectl apply -f /var/lib/jenkins/workspace/first_python/ks_deployment.yaml'
-                    //sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+                    sh 'export KUBECONFIG=/home/test/.kube/config && kubectl apply -f /var/lib/jenkins/workspace/first_python/ks_deployment.yaml'
+                                   //sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
                     //sh 'chmod u+x ./kubectl'  
                     //sh './kubectl get pods'
                 }
