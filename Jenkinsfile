@@ -11,6 +11,11 @@ pipeline{
     }
     agent any
     stages{
+        stage("Test"){
+            steps {
+                sh 'python unit-test.py'
+            }
+        }   
         stage("Building Docker Image"){
             steps{
                 script{
