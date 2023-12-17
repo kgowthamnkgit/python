@@ -37,7 +37,7 @@ pipeline{
                 script{
                     sh "chmod +x tag.sh"
                     sh "./tag.sh $BRANCH_NAME-${BUILD_NUMBER}"
-                    echo "========DEPLOYING IMAGE TO K8S========"
+                    echo "========DEPLOYING IMAGE TO MiniKUBE K8S========"
                     sh 'export KUBECONFIG=/home/test/.kube/config && kubectl apply -f /var/lib/jenkins/workspace/first_python/ks_deployment.yaml'
                 }
             }
