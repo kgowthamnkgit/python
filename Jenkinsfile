@@ -13,7 +13,7 @@ pipeline{
     stages{
         stage("Test"){
             steps {
-                sh 'python3 unit-test.py'
+                sh 'python3 unittest.py'
             }
         }   
         stage("Building Docker Image"){
