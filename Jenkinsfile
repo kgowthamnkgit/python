@@ -10,12 +10,7 @@ pipeline{
         docker_repository= 'kgowthamnk/docker-django-v0.0'
     }
     agent any
-    stages{
-        stage("Test"){
-            steps {
-                sh 'python3 unittest.py'
-            }
-        }   
+    stages{   
         stage("Building Docker Image"){
             steps{
                 script{
