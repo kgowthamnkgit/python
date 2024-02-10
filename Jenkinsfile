@@ -31,7 +31,7 @@ pipeline{
         }
         // stage("Deploy to K8s cluster"){
         //     when{
-        //         branch 'main'
+        //         branch 'v1'
         //     }
         //     steps{
         //         sh "chmod +x tag.sh"
