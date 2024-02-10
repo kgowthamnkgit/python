@@ -530,7 +530,7 @@ main-17: digest: sha256:ce32db4ae851805df86a25919772f5569c866e7ec16ca6e169da0b21
 [Pipeline] sh
 + chmod +x tag.sh
 [Pipeline] sh
-+ ./tag.sh main-17
++ ./tag.sh v1
 [Pipeline] echo
 ========DEPLOYING IMAGE TO M K8S========
 [Pipeline] sh
@@ -568,8 +568,7 @@ Step 5: Now Check the Deployments and pods in Kubernetes:
 Code Snippets from GitHub and Image Details from Docker Hub:
 
 Please find Django Python Basic code from the below repository
-https://github.com/kgowthamnkgit/python.git
- 
+https://github.com/kgowthamnkgit/python/tree/v1
 And also find the image deployed on kubernetes from docker hub
 
 https://hub.docker.com/repository/docker/kgowthamnk/docker-django-v0.0/tags?page=1&ordering=last_updated
